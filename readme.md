@@ -51,4 +51,23 @@ Add load_data stage in dvc.yaml & then run
 '''bash
 dvc repro
 '''
+to run the pipeline
+
+Add pipeline for spliting dataset into train and test data- /src/split_data.py
+
+Add split_data stage in dvc.yaml file & then run
+'''bash
+dvc repro
+'''
+to run the pipeline
+
+Add pipeline for training and evaluation- /src/train_and_evaluate.py
+
+Add train_and_evaluate stage in dvc.yaml file & then run
+'''bash
+dvc repro
+'''
+to run the pipeline
+
+
 
