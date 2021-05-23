@@ -24,11 +24,7 @@ python template.py
 ### Download the dataset from -
 https://drive.google.com/file/d/1A4Xw5xoHCLY4vo0E93EbjcbSdwrIby5T/view?usp=sharing
 
-<<<<<<< HEAD
-### Keep the raw dataset in /data/raw
-=======
 ### Keep the raw dataset in /source_data/
->>>>>>> 22a1d076e10b31903acdc875d08e2d73041879bc
 
 ### Initialize git repo
 ```bash
@@ -88,3 +84,18 @@ to run the pipeline again
 ```bash
 dvc metrics diff
 ```
+
+### Create and configure tox.ini file and add test cases for different environments
+
+### Create setup.py file & add packaging info to it
+Then run-
+```bash
+pip install -e .
+```
+We would see a folder in root dir named src.egg-info, where we find Packaging info and contents to be packaged.
+
+Note: To package as a tar, run-
+```bash
+python setup.py sdist bdist_wheel
+```
+It would create a distribution for us in /dist, which we can share with others for installing the library.
