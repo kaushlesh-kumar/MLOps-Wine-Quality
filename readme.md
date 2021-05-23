@@ -86,6 +86,10 @@ dvc metrics diff
 ```
 
 ### Create and configure tox.ini file and add test cases for different environments
+To run tests on the environments, ensure test cases are added to /tests/test_config.py, & run-
+```bash
+tox
+```
 
 ### Create setup.py file & add packaging info to it
 Then run-
