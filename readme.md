@@ -41,3 +41,4 @@ Add dataset to DVC for tracking
 dvc add data/raw/winequality.csv
 '''
 
+Add project & model configurations in params.yaml
