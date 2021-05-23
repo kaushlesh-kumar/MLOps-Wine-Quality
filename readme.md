@@ -42,3 +42,13 @@ dvc add data/raw/winequality.csv
 '''
 
 Add project & model configurations in params.yaml
+
+Add pipeline for fetching data from Data source- /src/get_data.py
+
+Add pipeline for loading the raw data locally- /src/load_data.py
+
+Add load_data stage in dvc.yaml & then run
+'''bash
+dvc repro
+'''
+

@@ -4,7 +4,7 @@ base:
   target_col: TARGET
 
 data_source:
-  remote_source: data/raw/winequality.csv
+  original_source: source_data/winequality.csv
 
 load_data:
   raw_dataset_csv: data/raw/winequality.csv
