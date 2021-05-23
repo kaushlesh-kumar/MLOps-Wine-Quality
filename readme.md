@@ -69,5 +69,18 @@ dvc repro
 '''
 to run the pipeline
 
+To see current parameters ans scores, run
+'''bash
+dvc metrics show
+'''
 
+Change model paramerters and run
+'''bash
+dvc repro
+'''
+to run the pipeline again
 
+To compare previous and current parameters and scores, run
+'''bash
+dvc metrics diff
+'''
