@@ -118,8 +118,15 @@ python app.py
 
 Push changes to github and navigate to github actions to see the build status
 
-### Create an account in Heroku and connect Heroku to Github
+### Create an account in Heroku and connect Heroku to Github for continuous deployment
 
 ### Add Heroku app name and API token in github repository secrets
 
 ### Create a Procfile for Heroku, so that it can figure out the entry point
+Add Gunicorn as WSGI HTTP server, which is used to forward requests from a web server  to a backend Python web application or framework. From there, responses are then passed back to the webserver.
+
+### Deploy app in Heroku
+- Push ProcFile to github repo
+- See if the build runs fine in github actions
+- See the Webapp hosted on Heroku on the app url provided in Heroku-settings
+- https://wine-quality-prediction-mlops.herokuapp.com/
