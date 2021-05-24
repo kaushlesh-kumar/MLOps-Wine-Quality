@@ -103,3 +103,12 @@ Note: To package as a tar, run-
 python setup.py sdist bdist_wheel
 ```
 It would create a distribution for us in /dist, which we can share with others for installing the library.
+
+### Design the frontend of the webapp
+Refer to /webapp/
+
+### Write the backend code in app.py
+To run the flask application, run-
+```bash
+python app.py
+```
