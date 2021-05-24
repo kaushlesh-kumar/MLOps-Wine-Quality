@@ -116,3 +116,10 @@ python app.py
 ### Set up a CICD pipeline using github workflows action
 /.github/workflows/ci-cd.yaml
 
+Push changes to github and navigate to github actions to see the build status
+
+### Create an account in Heroku and connect Heroku to Github
+
+### Add Heroku app name and API token in github repository secrets
+
+### Create a Procfile for Heroku, so that it can figure out the entry point
