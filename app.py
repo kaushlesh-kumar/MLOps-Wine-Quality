@@ -17,7 +17,6 @@ def index():
         try:
             if request.form:    #if request is coming from the webapp
                 dict_req = dict(request.form)
-                # dict_req = [list(map(float, dict_req))]
                 response = prediction.form_response(dict_req)
                 return render_template("index.html", response=response)
             
@@ -27,9 +26,8 @@ def index():
 
         except Exception as e:
             print(e)
-            # error = {"error": "Something went wrong!! Please try again!"}
-            error = {"error": e}
-            return render_template("404.html", error=e)
+            error = {error:e}
+            return render_template("404.html", error=error)
     else:
         return render_template("index.html")
 
