@@ -38,5 +38,13 @@
     "sulphates": {
         "min": 0.33,
         "max": 2.0
+    },
+    "alcohol": {
+        "min": 8.4,
+        "max": 14.9
+    },
+    "TARGET": {
+        "min": 3.0,
+        "max": 8.0
     }
 }
