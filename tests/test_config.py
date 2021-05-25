@@ -51,8 +51,8 @@ input_data = {
 }
 
 TARGET_range = {
-    "min": 3.0,
-    "max": 8.0
+    "min": 0.0,
+    "max": 10.0
 }
 
 def test_form_response_correct_range(data=input_data["correct_range"]):
