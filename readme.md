@@ -85,7 +85,12 @@ to run the pipeline again
 dvc metrics diff
 ```
 
-### Create and configure tox.ini file and add test cases for different environments
+### Design test cases for input validation
+Refer to -
+/prediction_service/prediction.py
+/tests/test_config.py
+
+### Create and configure tox.ini file and add different environments to carry out tests on
 To run tests on the environments, ensure test cases are added to /tests/test_config.py, & run-
 ```bash
 tox
