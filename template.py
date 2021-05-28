@@ -7,12 +7,14 @@ dirs = [
     os.path.join("data", "processed"),
     "notebooks",
     "saved_models",
-    "src"
+    "src",
+    "report",
+    "tests"
 ]
 
 for dir_ in dirs:
     os.makedirs(dir_, exist_ok=True)
-    with open(os.path.join(dir_, ".gitkeep")) as d:
+    with open(os.path.join(dir_, ".gitkeep"), "w") as d:
         pass
 
 files = [

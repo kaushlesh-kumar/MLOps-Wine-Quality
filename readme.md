@@ -1,17 +1,23 @@
+# Project Description
+This is a MLOps project to predict Wine Quality (on a scale of 0 to 10, higher score meaning better quality) from a set of parameters like fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates & alcohol.<br />
+The final app is being deployed to Heroku. Data pipelining and versioning is done using open-source tool, dvc. Model versioning is done using mlflow. The CICD pipeline is set up using Github Workflows Action.<br/>
+Note: To find the mlflow integration, refer to the branch named 'integrate-mlflow' <br />
+Find the deployed webapp in https://wine-quality-prediction-mlops.herokuapp.com/ <br />
+
 # Steps Followed in creating the mlops project
 
-### create a virtual environment
+### create a virtual environment inside the current working directory
 
 ```bash
-conda create --prefix=wineq python=3.7 -y
+conda create --prefix=environment_name python=3.7 -y
 ```
 
-### activate the environment
+### activate the environment form the folder where its created
 ```bash
-conda activate wineq
+conda activate environment_name
 ```
 
-### create a requirements.txt file & install them
+### create a requirements.txt file, mention all dependencies & install them
 ```bash
 pip install -r requirements.txt
 ```
@@ -38,7 +44,7 @@ dvc init
 
 ### Add dataset to DVC for tracking
 ```bash
-dvc add data/raw/winequality.csv
+dvc add source_data/winequality.csv
 ```
 
 ### Add project & model configurations in params.yaml
@@ -68,6 +74,10 @@ to run the pipeline
 dvc repro
 ```
 to run the pipeline
+<br />
+see that the trained model has got saved in /saved_models <br />
+Copy the saved model to /prediction_service/model
+
 
 ### To see current parameters ans scores, run
 ```bash
@@ -85,13 +95,23 @@ to run the pipeline again
 dvc metrics diff
 ```
 
+### Get the input range for all features
+Refer to notebooks/Test.ipynb
+Copy the generated schema_in.json to /tests and /prediction_service
+
+
 ### Design test cases for input validation
 Refer to -
 /prediction_service/prediction.py
 /tests/test_config.py
 
+# To run all test cases in the current environment, run-
+```bash
+pytest -v
+```
+
 ### Create and configure tox.ini file and add different environments to carry out tests on
-To run tests on the environments, ensure test cases are added to /tests/test_config.py, & run-
+To run tests on customized environments, ensure test cases are added to /tests/test_config.py, & run-
 ```bash
 tox
 ```
@@ -101,9 +121,9 @@ Then run-
 ```bash
 pip install -e .
 ```
-We would see a folder in root dir named src.egg-info, where we find Packaging info and contents to be packaged.
+We would see a folder in root dir named {name}.egg-info, where we find Packaging info and contents to be packaged.
 
-Note: To package as a tar, run-
+Note: To create a distribution & package as a tar, run-
 ```bash
 python setup.py sdist bdist_wheel
 ```
@@ -118,20 +138,22 @@ To run the flask application, run-
 python app.py
 ```
 
-### Set up a CICD pipeline using github workflows action
-/.github/workflows/ci-cd.yaml
-
-Push changes to github and navigate to github actions to see the build status
-
-### Create an account in Heroku and connect Heroku to Github for continuous deployment
-
-### Add Heroku app name and API token in github repository secrets
+### Heroku Setup
+- Create an account in Heroku, if not created
+- Create an app with a valid app name.
+- Find option to connect Heroku to Github for continuous deployment
+- Get the API token from settings in Heroku
+- Add Heroku app name and API token in github repository secrets
 
 ### Create a Procfile for Heroku, so that it can figure out the entry point
-Add Gunicorn as WSGI HTTP server, which is used to forward requests from a web server  to a backend Python web application or framework. From there, responses are then passed back to the webserver.
+Add Gunicorn as WSGI HTTP server, which is used to forward requests from a web server to a backend Python web application or framework. From there, responses are then passed back to the webserver.
+
+### Set up a CICD pipeline using github workflows action
+Refer to /.github/workflows/ci-cd.yaml
+<br />
+Push changes to github and navigate to github actions to see the build status
 
 ### Deploy app in Heroku
-- Push ProcFile to github repo
-- See if the build runs fine in github actions
-- See the Webapp hosted on Heroku on the app url provided in Heroku-settings
+- Check if the build runs fine in github actions
+- Check the Webapp hosted on Heroku on the app url provided in Heroku-settings
 - https://wine-quality-prediction-mlops.herokuapp.com/
