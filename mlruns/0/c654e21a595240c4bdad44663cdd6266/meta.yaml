@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Administrator/MLOps-Wine-Quality/mlruns/0/c654e21a595240c4bdad44663cdd6266/artifacts
+end_time: 1665666352237
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: c654e21a595240c4bdad44663cdd6266
+run_uuid: c654e21a595240c4bdad44663cdd6266
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1665666348022
+status: 3
+tags: []
+user_id: Administrator

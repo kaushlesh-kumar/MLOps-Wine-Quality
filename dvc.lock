@@ -1,49 +1,50 @@
 schema: '2.0'
 stages:
   load_data:
-    cmd: python src/load_data.py --config=params.yaml
+    cmd: c:/ProgramData/Miniconda3/envs/mlops/python.exe src/load_data.py --config=params.yaml
     deps:
     - path: source_data/winequality.csv
       md5: ccc8d3507eb151f53f760d36abdef888
       size: 91998
     - path: src/get_data.py
-      md5: b773af9b5cb4fa662e711650234bb7e8
-      size: 712
+      md5: 377738b76af5bf9b3e5871a83d3bc61e
+      size: 743
     - path: src/load_data.py
-      md5: 2d2570806ae5ee6b0f3f19b661c68780
-      size: 722
+      md5: 2454b557c1f03e746f48d51fa53562b9
+      size: 753
     outs:
     - path: data/raw/winequality.csv
-      md5: d98e8f2eca228c11c4de1cc96866a54d
-      size: 93598
+      md5: dcb9f7736a81b73cf4cf803b5ef3f07e
+      size: 102550
   split_data:
-    cmd: python src/split_data.py --config=params.yaml
+    cmd: c:/ProgramData/Miniconda3/envs/mlops/python.exe src/split_data.py --config=params.yaml
     deps:
     - path: data/raw/winequality.csv
-      md5: d98e8f2eca228c11c4de1cc96866a54d
-      size: 93598
+      md5: dcb9f7736a81b73cf4cf803b5ef3f07e
+      size: 102550
     - path: src/split_data.py
       md5: 3da0d56a4a1d7cb6fd2e8a4e19026a79
       size: 1077
     outs:
     - path: data/processed/test_winequality.csv
-      md5: c15e3aabedff5ae70906fc98cc1dcd96
-      size: 18874
+      md5: a88453debe849a65c51b580e55bd6772
+      size: 24502
     - path: data/processed/train_winequality.csv
-      md5: b3bfd27223f2e8720ef91a42ce9a1657
-      size: 74870
+      md5: ad27bfbc52d57511282ff7440f333377
+      size: 72265
   train_and_evaluate:
-    cmd: python src/train_and_evaluate.py --config=params.yaml
+    cmd: c:/ProgramData/Miniconda3/envs/mlops/python.exe src/train_and_evaluate.py
+      --config=params.yaml
     deps:
     - path: data/processed/test_winequality.csv
-      md5: c15e3aabedff5ae70906fc98cc1dcd96
-      size: 18874
+      md5: a88453debe849a65c51b580e55bd6772
+      size: 24502
     - path: data/processed/train_winequality.csv
-      md5: b3bfd27223f2e8720ef91a42ce9a1657
-      size: 74870
+      md5: ad27bfbc52d57511282ff7440f333377
+      size: 72265
     - path: src/train_and_evaluate.py
-      md5: 23c49e818c3a8a71612b55a88451affa
-      size: 2676
+      md5: ecfb0cd10d6a6ea568b092676755190d
+      size: 3832
     params:
       params.yaml:
         estimators.ElasticNet.params.alpha: 0.88
@@ -53,8 +54,8 @@ stages:
       md5: 0568f34313ba7c5e55128b75dbcbee5c
       size: 46
     - path: report/scores.json
-      md5: 9ee93377b97817bc6b7641bf39c5918b
-      size: 101
+      md5: e7f93d551d3ca11eda423e7e9d6246fc
+      size: 99
     - path: saved_models/model.joblib
-      md5: 584e8780e4e56fda46a85a739ed01d18
-      size: 818
+      md5: f453274e4728dc1e9b58c8ee64406930
+      size: 1406
